@@ -81,6 +81,11 @@ else:
     resized_image = cv2.resize(image, (window_width, window_height))
     cv2_imshow(resized_image)
 ```
+
+# Output: 
+<img width="609" height="665" alt="image" src="https://github.com/user-attachments/assets/3fe7e830-4933-4a3f-9965-c0e2d04c606a" />
+
+
 # Result:
 Thus, to write a Python program using OpenCV to perform image manipulations for the given objectives is executed sucessfully.
 
