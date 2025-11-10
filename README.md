@@ -1,5 +1,6 @@
 # Face Detection using Haar Cascades with OpenCV and Matplotlib
-
+# Developed By: Daniel C
+# reg no: 212223240023
 ## Aim
 
 To write a Python program using OpenCV to perform the following image manipulations:  
@@ -52,4 +53,35 @@ iv) Perform face detection with label in real-time video from webcam.
 - Step 3: Apply `detect_face()` function on each frame  
 - Step 4: Display the video frame with rectangles around detected faces  
 - Step 5: Exit loop and close windows when ESC key (key code 27) is pressed  
-- Step 6: Release video capture and destroy all OpenCV windows  
+- Step 6: Release video capture and destroy all OpenCV windows
+
+
+# program:
+```
+# Developed By: Daniel C
+# Reg No: 212223240023
+
+from google.colab.patches import cv2_imshow
+import cv2
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+image = cv2.imread('Daniel.jpg')
+if image is None:
+    print("Error: Image not found.")
+else:
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+    for (x, y, w, h) in faces:
+        cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 2)
+    screen_res = 1920, 1080  # You can change this based on your screen
+    scale_width = screen_res[0] / image.shape[1]
+    scale_height = screen_res[1] / image.shape[0]
+    scale = min(scale_width, scale_height)
+    window_width = int(image.shape[1] * scale)
+    window_height = int(image.shape[0] * scale)
+    resized_image = cv2.resize(image, (window_width, window_height))
+    cv2_imshow(resized_image)
+```
+# Result:
+Thus, to write a Python program using OpenCV to perform image manipulations for the given objectives is executed sucessfully.
+
+    
